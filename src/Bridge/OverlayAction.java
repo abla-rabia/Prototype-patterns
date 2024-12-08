@@ -1,6 +1,6 @@
 package Bridge;
 
-import others.Screen;
+import Adapter.Screen;
 
 public class OverlayAction implements Action,Animate{
     private Screen destination;

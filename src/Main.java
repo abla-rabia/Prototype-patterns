@@ -1,3 +1,5 @@
+import Adapter.Element;
+import Adapter.ElementAdapter;
 import Proxy.*;
 import Bridge.*;
 import others.*;
@@ -58,8 +60,17 @@ public class Main {
     }
     private static void appliquerAdapter() {
         System.out.println("\n--- Adapter ---");
-
-        System.out.println("Opération Adapter effectuée !");
+        //1- Création d'une interaction qui a comme source un element boutton lors du clique
+        System.out.println("*********1. Création d'une interaction qui a comme source un boutton ( element ) cliqué");
+        Action action=new NavigateAction();
+        Interaction interaction=new MouseInteraction(action);
+        System.out.println("*********2.Création de elementAdapter qui adapte un element boutton a un screen");
+        Element element=new Element();
+        element.setName("Button");
+        ElementAdapter elementAdapter=new ElementAdapter(element);
+        interaction.setSource(elementAdapter);
+        System.out.println("La source de l'interaction est : "+interaction.getSource().getName());
+        System.out.println("Fin Adapter  !");
         retourMenu();
     }
     private static void appliquerBridge() {
@@ -78,7 +89,6 @@ public class Main {
         retourMenu();
     }
 
-    // Méthode pour retourner au menu principal
     private static void retourMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nAppuyez sur 'Entrée' pour retourner au menu principal...");

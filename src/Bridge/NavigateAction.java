@@ -1,6 +1,6 @@
 package Bridge;
 
-import others.Screen;
+import Adapter.Screen;
 
 public class NavigateAction implements Action,Animate{
     protected Screen destination=new Screen("Contact page");

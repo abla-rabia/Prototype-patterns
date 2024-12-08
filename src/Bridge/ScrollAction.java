@@ -1,6 +1,6 @@
 package Bridge;
 
-import others.Element;
+import Adapter.Element;
 
 public class ScrollAction implements Action,Animate{
     private float offsetX;

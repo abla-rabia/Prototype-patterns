@@ -1,6 +1,18 @@
 package Bridge;
 
+import Adapter.Screen;
+
 public class Interaction {
+    private Screen source;
+
+    public Screen getSource() {
+        return source;
+    }
+
+    public void setSource(Screen source) {
+        this.source = source;
+    }
+
     protected Action action;
     public Interaction(Action action){
         this.action=action;

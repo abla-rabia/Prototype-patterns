@@ -1,7 +1,5 @@
 package Bridge;
 
-import others.Screen;
-
 public class LinkAction implements Action{
     private String destination;
     @Override
