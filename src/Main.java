@@ -4,6 +4,8 @@ import others.*;
 
 import java.util.Scanner;
 
+import static Bridge.MouseTriggers.*;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -43,8 +45,6 @@ public class Main {
 
         scanner.close();
     }
-
-    // Méthode pour appliquer le patron Proxy
     private static void appliquerProxy() {
         System.out.println("\n--- Proxy ---");
         System.out.println("***************1.Création du prototype et lancement ***************\n");
@@ -56,20 +56,25 @@ public class Main {
         System.out.println("3.Fin proxy !\n");
         retourMenu();
     }
-
-    // Méthode pour appliquer le patron Adapter
     private static void appliquerAdapter() {
-        System.out.println("\n--- Appliquer le patron Adapter ---");
-        // Ajoutez ici vos opérations spécifiques pour le patron Adapter
+        System.out.println("\n--- Adapter ---");
+
         System.out.println("Opération Adapter effectuée !");
         retourMenu();
     }
-
-    // Méthode pour appliquer le patron Bridge
     private static void appliquerBridge() {
-        System.out.println("\n--- Appliquer le patron Bridge ---");
-        // Ajoutez ici vos opérations spécifiques pour le patron Bridge
-        System.out.println("Opération Bridge effectuée !");
+        System.out.println("\n--- Bridge ---");
+        System.out.println("1. Création d'une interaction de navigation causé par l'evennement du clic d'un boutton vers la page de contact.");
+        Action action=new NavigateAction();
+        Interaction interaction=new MouseInteraction(action);
+        ((MouseInteraction) interaction).setInteractionName(OnClick);
+        interaction.runInteraction(interaction,action);
+        System.out.println("2. Création d'une interaction de scroll causé par l'evennement du survole sur un boutton.");
+        Action action2=new ScrollAction();
+        Interaction interaction2=new MouseInteraction(action2);
+        ((MouseInteraction) interaction2).setInteractionName(WhileHovering);
+        interaction2.runInteraction(interaction2,action2);
+        System.out.println("Fin Bridge !");
         retourMenu();
     }
 
